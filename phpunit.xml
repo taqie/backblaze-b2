@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
-         bootstrap="./phpunit.php"
-         colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false"
-         verbose="true"
->
-    <testsuites>
-        <testsuite name="backblaze-b2">
-            <directory suffix=".php">./tests/</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist>
-            <directory suffix=".php">./src/</directory>
-        </whitelist>
-    </filter>
-    <logging>
-        <log type="coverage-text" target="php://stdout" showUncoveredFiles="true"/>
-        <log type="coverage-html" target="coverage" showUncoveredFiles="true"/>
-        <log type="coverage-clover" target="coverage.xml" showUncoveredFiles="true"/>
-    </logging>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" bootstrap="./phpunit.php" colors="true" processIsolation="false" stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.2/phpunit.xsd" cacheDirectory=".phpunit.cache" backupStaticProperties="false">
+  <coverage>
+    <report>
+      <clover outputFile="coverage.xml"/>
+      <html outputDirectory="coverage"/>
+      <text outputFile="php://stdout" showUncoveredFiles="true"/>
+    </report>
+  </coverage>
+  <testsuites>
+    <testsuite name="backblaze-b2">
+      <directory suffix=".php">./tests/</directory>
+    </testsuite>
+  </testsuites>
+  <logging/>
+  <source>
+    <include>
+      <directory suffix=".php">./src/</directory>
+    </include>
+  </source>
 </phpunit>
